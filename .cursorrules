@@ -1,0 +1,5 @@
+// Rule: All filenames must use kebab-case (lowercase letters, numbers, and hyphens only; no underscores or camelCase).
+// Example: use `my-component.tsx` instead of `MyComponent.tsx` or `my_component.tsx`.
+
+// Rule: When creating or importing UI components, prefer using shadcn/ui components.
+// Example: Use `import { Button } from "@/components/ui/button"` (shadcn) instead of other UI libraries or custom button implementations.

@@ -8,14 +8,15 @@
     "build": "vite build && tsc",
     "serve": "vite preview",
     "test": "vitest run",
-    "format": "biome format",
-    "lint": "biome lint",
-    "check": "biome check",
+    "format": "npx @biomejs/biome format --write .",
+    "lint": "npx @biomejs/biome lint .",
+    "check": "npx @biomejs/biome check .",
     "prepare": "husky install",
-    "lint:check": "biome check . && npx tsx ./scripts/check-console.ts",
-    "lint:fix": "biome fix ."
+    "lint:check": "npx @biomejs/biome check . && npx tsx ./scripts/check-console.ts",
+    "lint:fix": "npx @biomejs/biome format --write ."
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^6.11.2",
     "@hookform/resolvers": "^5.2.1",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
@@ -24,6 +25,7 @@
     "@tanstack/react-router": "^1.130.2",
     "@tanstack/react-router-devtools": "^1.131.5",
     "@tanstack/router-plugin": "^1.121.2",
+    "aws-amplify": "^6.15.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.539.0",
