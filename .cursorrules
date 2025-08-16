@@ -3,3 +3,64 @@
 
 // Rule: When creating or importing UI components, prefer using shadcn/ui components.
 // Example: Use `import { Button } from "@/components/ui/button"` (shadcn) instead of other UI libraries or custom button implementations.
+
+// Rule: Follow the established folder structure for organizing code:
+// - src/components/: Reusable UI components organized by category
+// - src/features/: Feature-based modules with their own components, hooks, and logic
+// - src/hooks/: Custom React hooks (use kebab-case: use-auth-state.ts, use-api-call.ts)
+// - src/lib/: Utility functions, constants, and type definitions
+// - src/services/: API and AWS service integrations
+// - src/stores/: State management (Zustand/Redux stores)
+// - src/routes/: TanStack Router route definitions (keep existing structure)
+// - src/styles/: Global and component-specific styles
+
+// Rule: Feature-based organization - each feature should be self-contained:
+// - src/features/auth/ should contain auth-related components, hooks, and logic
+// - src/features/dashboard/ should contain dashboard-specific functionality
+// - src/features/profile/ should contain profile management code
+
+// Rule: Component organization:
+// - src/components/ui/: shadcn/ui components (keep as-is, don't modify)
+// - src/components/auth/: Authentication-related components (login-form.tsx, signup-form.tsx)
+// - src/components/layout/: Layout components (header.tsx, footer.tsx, sidebar.tsx)
+// - src/components/forms/: Reusable form components (form-field.tsx, form-wrapper.tsx)
+
+// Rule: File naming conventions for different types:
+// - Components: kebab-case with descriptive names (user-profile-card.tsx, auth-modal.tsx)
+// - Hooks: use- prefix with kebab-case (use-aws-auth.ts, use-api-query.ts)
+// - Services: kebab-case with service suffix (auth-service.ts, aws-config.ts)
+// - Types: kebab-case with type suffix (user-types.ts, api-types.ts)
+// - Utils: kebab-case with descriptive names (date-helpers.ts, validation-utils.ts)
+
+// Rule: Import organization - use absolute imports with @/ prefix:
+// - Components: import { Button } from "@/components/ui/button"
+// - Features: import { useAuth } from "@/features/auth/use-auth"
+// - Hooks: import { useApiCall } from "@/hooks/use-api-call"
+// - Services: import { authService } from "@/services/auth-service"
+// - Types: import { User } from "@/types/user-types"
+
+// Rule: Keep existing infrastructure files unchanged:
+// - amplify/ directory and configuration
+// - scripts/ directory and build scripts
+// - public/ directory and static assets
+// - TanStack Router routes in src/routes/
+// - shadcn/ui components in src/components/ui/
+
+// Rule: AWS integration patterns:
+// - AWS-specific services go in src/services/aws/
+// - Use AWS SDK v3 patterns and best practices
+// - Keep AWS configuration in amplify/ directory
+// - Implement proper error handling for AWS service calls
+
+// Rule: State management:
+// - Use Zustand for simple state management
+// - Keep stores in src/stores/ with kebab-case naming
+// - Each store should be focused on a specific domain
+// - Example: auth-store.ts, user-store.ts, app-store.ts
+
+// Rule: Code splitting and lazy loading
+// - Use React.lazy and Suspense for code splitting large components and feature modules.
+// - Prefer dynamic imports for route-level and feature-level code splitting.
+// - Place code-split components in their appropriate feature or component folder.
+// - Example: const Dashboard = React.lazy(() => import("@/features/dashboard/dashboard-page"))
+// - Always provide a fallback UI (e.g., loading spinner from shadcn/ui) when using Suspense for lazy-loaded components.
