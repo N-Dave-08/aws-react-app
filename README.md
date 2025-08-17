@@ -299,3 +299,79 @@ Files prefixed with `demo` can be safely deleted. They are there to provide a st
 # Learn More
 
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+
+## Project Structure
+
+This project follows a clean and scalable folder structure that promotes maintainability and follows modern React best practices:
+
+```
+src/
+├── routes/                 # TanStack Router routes (file-based)
+│   ├── __root.tsx         # Root layout wrapper
+│   ├── index.tsx          # Home page (/)
+│   ├── auth/              # Authentication routes
+│   │   ├── login.tsx      # /auth/login
+│   │   └── signup.tsx     # /auth/signup
+│   ├── dashboard/         # Protected dashboard routes
+│   │   ├── index.tsx      # /dashboard
+│   │   ├── profile.tsx    # /dashboard/profile
+│   │   └── settings.tsx   # /dashboard/settings
+│   └── _404.tsx           # 404 page (catch-all)
+├── components/             # Reusable components
+│   ├── ui/                # shadcn/ui components (keep as-is)
+│   ├── forms/             # Form-specific components
+│   │   ├── LoginForm.tsx
+│   │   └── SignupForm.tsx
+│   ├── layout/            # Layout components
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   └── Sidebar.tsx
+│   └── common/            # Other reusable components
+│       ├── LoadingSpinner.tsx
+│       └── ErrorBoundary.tsx
+├── lib/                   # Utility functions and configurations
+│   ├── utils.ts           # General utilities
+│   ├── constants.ts       # App constants
+│   ├── validations.ts     # Zod schemas
+│   └── api.ts             # API configuration
+├── hooks/                 # Custom React hooks
+│   ├── useAuth.ts         # Authentication hook
+│   ├── useForm.ts         # Form handling hook
+│   └── useApi.ts          # API calls hook
+├── types/                 # TypeScript type definitions
+│   ├── auth.ts            # Authentication types
+│   ├── api.ts             # API response types
+│   └── common.ts          # Shared types
+├── services/              # External service integrations
+│   ├── authService.ts     # Authentication API calls
+│   ├── userService.ts     # User management
+│   └── apiClient.ts       # HTTP client setup
+├── stores/                # State management (if using Zustand/Redux)
+│   ├── authStore.ts       # Authentication state
+│   └── userStore.ts       # User state
+├── styles/                # Global styles and CSS modules
+│   ├── globals.css        # Global CSS
+│   └── components.css     # Component-specific styles
+└── assets/                # Static assets
+    ├── images/
+    └── icons/
+```
+
+### Structure Benefits
+
+- **Scalable**: Easy to add new features without restructuring
+- **Maintainable**: Clear separation of concerns
+- **Team-friendly**: Standard structure that new developers understand
+- **Type-safe**: Centralized types and validation
+- **Reusable**: Components and hooks can be shared across features
+- **Testable**: Easy to write unit tests for isolated components
+
+### Key Directories Explained
+
+- **`routes/`**: TanStack Router file-based routing - each file becomes a route
+- **`components/`**: Reusable UI components organized by purpose
+- **`lib/`**: Pure utility functions and configurations
+- **`hooks/`**: Custom React hooks for shared logic
+- **`types/`**: TypeScript type definitions for better development experience
+- **`services/`**: External API integrations and service layer
+- **`stores/`**: State management (optional, for complex state needs)
