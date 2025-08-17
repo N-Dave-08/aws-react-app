@@ -1,0 +1,9 @@
+{
+    "*.{js,jsx,ts,tsx}": [
+      "biome format --write",
+      "biome lint"
+    ],
+    "*.{json,css,md}": [
+      "biome format --write"
+    ]
+  }
