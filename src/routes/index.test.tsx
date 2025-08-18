@@ -3,24 +3,24 @@ import { describe, expect, it } from "vitest";
 import { App } from "./index";
 
 describe("Root Page (App)", () => {
-	it('renders a button with text "dasd"', () => {
+	it("renders the Authenticator component", () => {
 		render(<App />);
 
-		const button = screen.getByRole("button", { name: "dasd" });
-		expect(button).toBeInTheDocument();
+		const container = screen.getByText("Welcome to the app");
+		expect(container).toBeInTheDocument();
 	});
 
-	it("button is clickable", () => {
+	it("renders a sign out button", () => {
 		render(<App />);
 
-		const button = screen.getByRole("button", { name: "dasd" });
-		expect(button).not.toBeDisabled();
+		const button = screen.getByRole("button", { name: "Sign Out" });
+		expect(button).toBeInTheDocument();
 	});
 
 	it("renders in a div container", () => {
 		render(<App />);
 
-		const container = screen.getByText("dasd").closest("div");
+		const container = screen.getByText("Welcome to the app").closest("div");
 		expect(container).toBeInTheDocument();
 	});
 });
