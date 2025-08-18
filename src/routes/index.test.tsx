@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { App } from "./index";
 
-// Mock the Authenticator component
+// Mock the Authenticator component and useAuthenticator hook
 vi.mock("@aws-amplify/ui-react", () => ({
 	Authenticator: ({ children }: { children: React.ReactNode }) => {
 		if (typeof children === "function") {
@@ -12,6 +12,11 @@ vi.mock("@aws-amplify/ui-react", () => ({
 		}
 		return children;
 	},
+	useAuthenticator: () => ({
+		signOut: vi.fn(),
+		user: { username: "testuser" },
+		signInState: "signedIn",
+	}),
 	withAuthenticator: (Component: React.ComponentType) => Component,
 }));
 
